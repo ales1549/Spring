@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <h1>Список машин</h1>
+    <table>
+       <thread>
+           <tr>
+               <th>Марка</th>
+               <th>Модель</th>
+               <th>Объем двигателя</th>
+           </tr>
+       </thread>
+       <tbody>
+          <tr th:each="car : ${cars}">
+              <td th:text="${car.brand}">Brand</td>
+              <td th:text="${car.model}">Model</td>
+              <td th:text="${car.capacity}">Capacity</td>
+          </tr>
+       </tbody>
+    </table>
+</body>
+</html>
