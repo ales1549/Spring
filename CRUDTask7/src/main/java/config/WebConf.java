@@ -11,18 +11,19 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
 import javax.servlet.ServletContext;
 
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(value="controller")
+@ComponentScan(value = "controller")
 public class WebConf implements WebMvcConfigurer {
     @Autowired
     private ServletContext servContext;
 
     @Bean
-    public ServletContextTemplateResolver templateResolver(){
+    public ServletContextTemplateResolver templateResolver() {
         ServletContextTemplateResolver tempResolver = new ServletContextTemplateResolver(servContext);
         tempResolver.setTemplateMode(TemplateMode.HTML);
         tempResolver.setCharacterEncoding("UTF-8");
@@ -30,15 +31,17 @@ public class WebConf implements WebMvcConfigurer {
         tempResolver.setSuffix(".html");
         return tempResolver;
     }
+
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine tempEngine = new SpringTemplateEngine();
         tempEngine.setTemplateResolver(templateResolver());
         tempEngine.setEnableSpringELCompiler(true);
         return tempEngine;
     }
+
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry){
+    public void configureViewResolvers(ViewResolverRegistry registry) {
         ThymeleafViewResolver res = new ThymeleafViewResolver();
         res.setTemplateEngine(templateEngine());
         res.setCharacterEncoding("UTF-8");

@@ -1,6 +1,7 @@
 package web.Car;
 
 import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,8 +14,9 @@ public class CarService {
             new Car("Audi", "RS-6", 4.4),
             new Car("Toyota", "Supra", 3.7),
             new Car("Nissan", "R-34", 3.0));
-    public List<Car> getCars(int count){
-        if(count >= cars.size() || count <= 0){
+
+    public List<Car> getCars(int count) {
+        if (count >= cars.size() || count <= 0) {
             return cars;
         }
         return cars.stream().limit(count).collect(Collectors.toList());

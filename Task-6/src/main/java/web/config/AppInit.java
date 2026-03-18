@@ -3,7 +3,7 @@ package web.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
-//    Создайте еще один контроллер, замаппленный на /cars.
+    //    Создайте еще один контроллер, замаппленный на /cars.
 //    Создайте модель Car с тремя произвольными полями.
 //    Создайте список из 5 машин.
 //    Создайте сервис с методом, который будет возвращать указанное число машин из созданного списка.
@@ -25,6 +25,8 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
 
     /* Данный метод указывает url, на котором будет базироваться приложение */
     @Override
-    protected String[] getServletMappings() {return new String[]{"/"};}
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Application {
-//    Поработаем со связыванием бинов.
+    //    Поработаем со связыванием бинов.
 //    Вызывать бины из контекста хорошо, но не так удобно, как связывать их автоматически.
 //    Для работы аннотаций связывания, я добавил в Maven ядро Cпринга, так мы имеем совершенно рабочее Spring-приложение, пусть и без дополнительных модулей.
 //    В компоненте AnimalCage есть поле типа Animal, которое связано с помощью аннотации @Autowired. При выполнении программы DI-контейнер подтянет сюда бин, подходящий по типу.
@@ -26,7 +26,7 @@ public class Application {
             AnimalsCage bean =
                     applicationContext.getBean(AnimalsCage.class);
             bean.whatAnimalSay();
-            if (i == 0){
+            if (i == 0) {
                 time = bean.getTimer().getTime();
                 continue;
             }

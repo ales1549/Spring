@@ -12,32 +12,33 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-   @Autowired
-   private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-   @Override
-   public void add(User user) {
-      sessionFactory.getCurrentSession().save(user);
-   }
+    @Override
+    public void add(User user) {
+        sessionFactory.getCurrentSession().save(user);
+    }
 
-   @Override
-   @SuppressWarnings("unchecked")
-   public List<User> listUsers() {
-      return sessionFactory.getCurrentSession()
-              .createQuery("SELECT DISTINCT u FROM User u LEFT JOIN FETCH u.userCar", User.class)
-              .getResultList();
-   }
-   @Override
-   public User findUserByCar(String model, int series){
-      String hql = "SELECT u FROM User u JOIN FETCH u.userCar c WHERE c.model = :model AND c.series = :series";
-      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
-      query.setParameter("model", model);
-      query.setParameter("series", series);
-      try{
-         return (User) query.getSingleResult();
-      }catch(Exception e){
-         return null;
-      }
-   }
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> listUsers() {
+        return sessionFactory.getCurrentSession()
+                .createQuery("SELECT DISTINCT u FROM User u LEFT JOIN FETCH u.userCar", User.class)
+                .getResultList();
+    }
+
+    @Override
+    public User findUserByCar(String model, int series) {
+        String hql = "SELECT u FROM User u JOIN FETCH u.userCar c WHERE c.model = :model AND c.series = :series";
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
+        query.setParameter("model", model);
+        query.setParameter("series", series);
+        try {
+            return (User) query.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 }

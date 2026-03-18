@@ -24,10 +24,12 @@ public class AppConf {
     public AppConf() {
         System.out.println("APP_CONF LOADED");
     }
+
     @Autowired
     private Environment env;
+
     @Bean
-    public DataSource getDataSource(){
+    public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
@@ -35,8 +37,9 @@ public class AppConf {
         dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
     }
+
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean eMF = new LocalContainerEntityManagerFactoryBean();
         eMF.setDataSource(getDataSource());
         eMF.setPackagesToScan("model");
@@ -48,8 +51,9 @@ public class AppConf {
         eMF.setJpaProperties(prop);
         return eMF;
     }
+
     @Bean
-    public PlatformTransactionManager transactionManager(){
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager tM = new JpaTransactionManager();
         tM.setEntityManagerFactory(entityManagerFactory().getObject());
         return tM;

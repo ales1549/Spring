@@ -3,6 +3,7 @@ package koschei;
 import koschei.config.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 //«На море на океане есть остров, на том острове дуб стоит, под дубом сундук зарыт, в сундуке — заяц, в зайце — утка, в утке — яйцо, в яйце — игла, — смерть Кощея»
 //Зависимости остались прежние. В упражнении появился компонент Кощей Бессмертный (KoscheiTheDeathless), который расскажет, где находится его смерть, если вызвать метод getRulesByDeth().
 //Для описания поиска смерти использованы классы в пакете models. Для вашего удобства они были пронумерованы: Ocean1, Island2, Wood3 и так далее.

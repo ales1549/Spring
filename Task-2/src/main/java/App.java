@@ -1,5 +1,6 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 //Прочитайте про виды бинов.
 //Создайте POJO-класс Cat.
 //В классе AppConfig, по аналогии, создайте бин с именем “cat”.

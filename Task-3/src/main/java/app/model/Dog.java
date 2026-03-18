@@ -5,5 +5,7 @@ import org.springframework.stereotype.Component;
 @Component("dog")
 public class Dog extends Animal {
     @Override
-    public String toString(){return "Im a Dog";}
+    public String toString() {
+        return "Im a Dog";
+    }
 }
